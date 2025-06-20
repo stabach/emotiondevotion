@@ -1,0 +1,381 @@
+/* Reset and base styling */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  transition: background-color 0.3s;
+}
+
+/* Main content container */
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(80, 80, 80, 0.08);
+  max-width: 730px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Button and select styling */
+select, button {
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  margin-top: 1rem;
+  outline: none;
+}
+
+button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover, #randomizeBtn:hover {
+  background-color: #356bc5;
+  transform: translateY(-1px) scale(1.03);
+}
+
+#randomizeBtn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background-color: #6c63ff;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Section/title spacing (tighter) */
+.box-title {
+  margin-bottom: 2px;  /* Was 4px, now tighter */
+  font-size: 1.22rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #374151;
+}
+
+/* Layout for display area */
+.display-box {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Verse/Devotional Boxes (tight spacing) */
+.verse, .devotional {
+  width: 100%;
+  max-width: 600px;
+  min-height: 100px;      /* Sets the default height */
+  max-height: 140px;      /* Never grows past this—scroll appears */
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: #f7fafd;
+  box-shadow:
+    0 4px 24px 0 rgba(100, 180, 250, 0.13),
+    0 1px 4px 0 #737374;
+  border: 2.5px solid #c6e2ff;
+  text-align: left;
+  font-size: 1.17rem;
+  overflow-y: auto;       /* Allows scroll instead of expansion */
+  margin-bottom: 14px;
+  color: #23272f;
+  line-height: 1.5;
+  display: block;
+  transition: 
+    box-shadow 0.16s, 
+    border-color 0.16s, 
+    background 0.18s;
+}
+
+
+.verse:hover, .devotional:hover {
+  box-shadow:
+    0 10px 40px 0 rgba(100, 200, 255, 0.22),
+    0 2px 8px 0 #696969;
+  border-color: #525252;
+  background: #e7f7ff;
+}
+
+
+
+.verse strong {
+  font-size: 1.11rem;
+  color: #274690;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.devotional {
+  background-color: #e8f0fe;
+  font-style: italic;
+  margin-bottom: 0;       /* No extra space after devotional */
+}
+
+/* Devotional Box Standalone (if used elsewhere) */
+.devotional-box {
+  margin-top: 1.1rem;
+  background-color: #e8f0fe;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Emotion grid UI */
+.emotion-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+  justify-items: center;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.emotion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emotion-btn {
+  width: 90px;
+  height: 90px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.18s, outline 0.15s;
+}
+
+.emotion-btn.selected {
+  outline: 3px solid #4a90e2;
+  transform: scale(1.1);
+}
+
+.emotion-btn:hover {
+  transform: scale(1.04);
+}
+
+.emotion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Emotion label */
+.label {
+  margin-top: 8px;
+  font-size: 1.09rem;
+  text-align: center;
+  color: #f97b27; /* Orange - stands out for kids */
+  font-family: 'Comic Neue', 'Baloo 2', 'Fredoka', cursive, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 2px 0 #fff8, 0 1px 2px #d1690044; /* Subtle soft pop */
+  transition: color 0.2s;
+}
+
+.label:hover {
+  color: #ff4c78;
+  transform: scale(1.08) rotate(-2deg);
+  cursor: pointer;
+  transition: color 0.15s, transform 0.18s;
+}
+
+/* Content section for general page layouts */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content-section h2 {
+  margin-top: 20px;
+  margin-bottom: 6px;
+  font-size: 1.19rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body {
+  background: linear-gradient(135deg, #d0eaff 0%, #ffe6f7 100%);
+}
+
+.container {
+  border-radius: 20px;
+  box-shadow: 0 6px 28px 0 rgba(100,100,180,0.12);
+}
+
+.display-box, .verse, .devotional {
+  border-radius: 18px !important;
+}
+
+.label {
+  font-family: 'Fredoka One', 'Baloo 2', 'Quicksand', Arial, sans-serif;
+  font-size: 1.15rem;
+  color: #3498db;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px #fff7;
+}
+
+.emotion-btn.selected {
+  outline: 4px solid #FFF275;
+  box-shadow: 0 4px 16px #FFB34755;
+  transform: scale(1.12) rotate(-3deg);
+}
+
+.emotion-btn:hover {
+  box-shadow: 0 2px 12px #7EC4CF99;
+  transform: scale(1.05);
+}
+
+
+.label:hover {
+  animation: wiggle 0.7s ease;
+}
+@keyframes wiggle {
+  0%,100%{transform:rotate(-1deg);}
+  15%{transform:rotate(2deg);}
+  30%{transform:rotate(-2deg);}
+  45%{transform:rotate(1deg);}
+  60%{transform:rotate(-1deg);}
+  75%{transform:rotate(1deg);}
+}
+
+.emotion-btn.selected {
+  animation: glowpulse 1.3s infinite alternate;
+}
+@keyframes glowpulse {
+  from {
+    box-shadow: 0 4px 16px #FFB34766, 0 0 0 #fff;
+    outline-color: #FFF275;
+  }
+  to {
+    box-shadow: 0 8px 32px #FF70A644, 0 0 8px #FFF27588;
+    outline-color: #FF70A6;
+  }
+}
+
+.emotion-img:hover {
+  animation: poptilt 0.23s cubic-bezier(.56,1.65,.37,.87);
+  filter: brightness(1.07) drop-shadow(0 2px 12px #ffc4ec77);
+}
+@keyframes poptilt {
+  0% { transform: scale(1) rotate(0deg);}
+  45% { transform: scale(1.13) rotate(-7deg);}
+  100% { transform: scale(1.05) rotate(2deg);}
+}
+
+button, #randomizeBtn {
+  background: linear-gradient(90deg, #7ed6df, #ffe066, #bcbcff, #ffadad, #ffffff, #a2e4b8, #7ed6df);
+  background-size: 600% 100%;
+  animation: btn-rainbow 6s linear infinite;
+  color: #232323 !important;
+  text-shadow: 0 1px 8px #fff7;
+  font-weight: 700;
+}
+@keyframes btn-rainbow {
+  0% {background-position: 0% 50%;}
+  100% {background-position: 100% 50%;}
+}
+
+.box-title {
+  font-family: 'Chewy', 'Fredoka One', 'Comic Neue', 'Baloo 2', cursive, sans-serif !important;
+  font-size: 2.5rem !important;           /* MAKE IT MASSIVE AND OVERRIDE */
+  color: #ff70a6;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  font-weight: 900 !important;
+  text-align: center;
+  text-shadow: 
+    4px 4px 0 #fffbe6, 
+    0 5px 18px #7ed6df77,
+    -4px -4px 0 #ffd6e6,
+    4px -4px 0 #ffe066,
+    -4px 4px 0 #a2e4b8;
+  transition: color 0.18s, transform 0.13s;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  line-height: 1.1 !important;
+}
+.box-title:hover {
+  color: #7ed6df !important;
+  transform: scale(1.14) rotate(-2deg);
+  text-shadow: 0 8px 30px #bcbcffaa;
+  cursor: pointer;
+}
+.main-btn {
+  min-width: 200px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+    min-height: unset;
+    align-items: stretch;
+  }
+  .container {
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    max-width: 99vw;
+    min-width: unset;
+  }
+  .display-box, .verse, .devotional {
+    max-width: 100vw;
+    padding: 12px 6px;
+    font-size: 1rem;
+  }
+  .box-title {
+    font-size: 1.25rem !important;
+  }
+  .emotion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .emotion-btn {
+    width: 70px;
+    height: 70px;
+  }
+  .emotion-img {
+    border-radius: 8px;
+  }
+  .main-btn, button, #randomizeBtn {
+    font-size: 1rem;
+    min-width: 100%;
+    padding: 12px 0;
+    margin-left: 0;
+  }
+}
