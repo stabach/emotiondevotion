@@ -148,25 +148,29 @@ button:hover, #randomizeBtn:hover {
 }
 
 .emotion-item {
+  width: 100px;    /* Or whatever fits your grid */
+  height: 130px;   /* Make sure it's tall enough for the image + label */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  /* Prevent stretching on long text */
 }
-
 .emotion-btn {
   width: 90px;
   height: 90px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.18s, outline 0.15s;
+  flex-shrink: 0;  /* Don't shrink image for long label */
 }
+.label {
+  width: 90px;    /* Match the image width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 1.05rem;
+  /* Optional: shrink font or break word for really long words */
+}
+
 
 .emotion-btn.selected {
   outline: 3px solid #4a90e2;
