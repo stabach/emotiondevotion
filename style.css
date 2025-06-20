@@ -386,3 +386,10 @@ button, #randomizeBtn {
     letter-spacing: 1px;
   }
 }
+
+@media (max-width: 600px) {
+  .emotion-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important; /* optional: makes it a bit tighter */
+  }
+}
