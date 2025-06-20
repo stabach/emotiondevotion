@@ -384,3 +384,24 @@ button, #randomizeBtn {
   }
 }
 
+.emotion-item {
+  width: 100px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.emotion-btn {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+.label {
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 1.05rem;
+}
