@@ -379,3 +379,10 @@ button, #randomizeBtn {
     margin-left: 0;
   }
 }
+
+@media (max-width: 600px) {
+  .main-title, .box-title, h1, h2 {
+    font-size: 1.2rem !important; /* Or tweak as needed */
+    letter-spacing: 1px;
+  }
+}
