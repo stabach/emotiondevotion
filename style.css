@@ -341,3 +341,42 @@ button, #randomizeBtn {
   text-align: center;
 }
 
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+    min-height: unset;
+    align-items: stretch;
+  }
+  .container {
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    max-width: 99vw;
+    min-width: unset;
+  }
+  .display-box, .verse, .devotional {
+    max-width: 100vw;
+    padding: 12px 6px;
+    font-size: 1rem;
+  }
+  .box-title {
+    font-size: 1.25rem !important;
+  }
+  .emotion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .emotion-btn {
+    width: 70px;
+    height: 70px;
+  }
+  .emotion-img {
+    border-radius: 8px;
+  }
+  .main-btn, button, #randomizeBtn {
+    font-size: 1rem;
+    min-width: 100%;
+    padding: 12px 0;
+    margin-left: 0;
+  }
+}
+
