@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka+One&family=Comic+Neue:wght@700&family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Emotion Devotion</title>
+ <link rel="stylesheet" href="style.css" />
+ <style>
+   /* Badge Popup Styles - forced on top of all */
+   #badgePopup {
+     display: none;
+     position: fixed !important;
+     left: 50% !important;
+     top: 30px !important;
+     transform: translateX(-50%) !important;
+     background: linear-gradient(90deg,#fffbe6 60%,#ffe6f7 100%) !important;
+     color: #ff70a6 !important;
+     border: 2px solid #ffd700 !important;
+     border-radius: 16px !important;
+     box-shadow: 0 4px 32px #ffbb0055 !important;
+     padding: 22px 34px !important;
+     font-size: 1.35rem !important;
+     font-family: 'Fredoka One','Baloo 2',cursive,sans-serif !important;
+     font-weight: 900 !important;
+     text-align: center !important;
+     z-index: 100000 !important;
+     animation: badgepop 0.33s cubic-bezier(.16,1.54,.71,.95);
+   }
+   @keyframes badgepop {
+     from {transform:translateX(-50%) scale(0.8);}
+     to   {transform:translateX(-50%) scale(1);}
+   }
+ </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <button id="goToHomeBtn" class="main-btn">Home</button>
+    <button id="goToJournalBtn" class="main-btn">My Journal</button>
+    <button id="goToSongsBtn" class="main-btn">Songs</button>
+
+    <!-- You can add more menu buttons here later -->
+  </div>
+
+  <div class="container">
+    <h1>How are you feeling today?</h1>
+    <div class="emotion-grid">
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Joyful">
+          <img src="images/joyful.png" alt="Joyful face" class="emotion-img">
+        </button>
+        <div class="label">Joyful</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Sad">
+          <img src="images/sad.png" alt="Sad face" class="emotion-img">
+        </button>
+        <div class="label">Sad</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Angry">
+          <img src="images/angry.png" alt="Angry face" class="emotion-img">
+        </button>
+        <div class="label">Angry</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Tired">
+          <img src="images/tired.png" alt="Tired face" class="emotion-img">
+        </button>
+        <div class="label">Tired</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Anxious">
+          <img src="images/anxious.png" alt="Anxious face" class="emotion-img">
+        </button>
+        <div class="label">Anxious</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Afraid">
+          <img src="images/afraid.png" alt="Afraid face" class="emotion-img">
+        </button>
+        <div class="label">Afraid</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Discouraged">
+          <img src="images/discouraged.png" alt="Discouraged face" class="emotion-img">
+        </button>
+        <div class="label">Discouraged</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Hopeful">
+          <img src="images/hopeful.png" alt="Hopeful face" class="emotion-img">
+        </button>
+        <div class="label">Hopeful</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Lonely">
+          <img src="images/lonely.png" alt="Lonely face" class="emotion-img">
+        </button>
+        <div class="label">Lonely</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Confused">
+          <img src="images/confused.png" alt="Confused face" class="emotion-img">
+        </button>
+        <div class="label">Confused</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Left Out">
+          <img src="images/leftout.png" alt="Left Out face" class="emotion-img">
+        </button>
+        <div class="label">Left Out</div>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="Grateful">
+          <img src="images/grateful.png" alt="Grateful face" class="emotion-img">
+        </button>
+        <div class="label">Grateful</div>
+      </div>
+    </div>
+
+    <button class="main-btn" id="getVerseBtn">Get Verse</button>
+    <button class="main-btn" id="randomizeBtn">Another Scripture</button>
+
+    <div class="content-section">
+      <div class="display-box">
+        <h2 class="box-title">Scripture</h2>
+        <div id="verseDisplay" class="verse"></div>
+      </div>
+      <div class="display-box">
+        <h2 class="box-title">Devotional</h2>
+        <div id="devotionalDisplay" class="devotional"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="journal-section" style="display: none;">
+    <h2 class="box-title">My Journal</h2>
+    <div>
+      <textarea id="journalEntry" rows="4" placeholder="How are you feeling today? Write about it here..." style="width:100%; border-radius:10px; padding:10px; font-size:1.1rem;"></textarea>
+    </div>
+    <button id="saveJournalBtn" class="main-btn">Save Entry</button>
+    <h3 style="margin-top:24px; color:#333;">Past Entries</h3>
+
+<div id="journalList"></div>
+<div id="journalPagination" style="display:flex; gap:8px; margin-top:12px;">
+  <button id="journalPrevBtn" class="main-btn" style="display:none;">← Previous</button>
+  <span id="journalPageInfo" style="line-height:38px;"></span>
+  <button id="journalNextBtn" class="main-btn" style="display:none;">Next →</button>
+</div>
+
+    <button id="backToMainBtn" class="main-btn" style="margin-top:22px;">Back to Devotional</button>
+  </div>
+
+  <!-- TEST BADGE BUTTON (Remove this line when done testing) -->
+  <!-- <button onclick="showBadgePopup('Test badge: should be visible!')" style="position:fixed;bottom:20px;left:20px;z-index:100001;">Test Badge Popup</button> -->
+
+  <!-- Badge Popup -->
+  <div id="badgePopup">
+    <span id="badgeMessage"></span>
+  </div>
+
+<div class="songs-section" style="display:none;">
+  <h2 class="box-title">Songs</h2>
+  <div id="songList" style="margin: 18px 0;">
+    <!-- Song list will appear here -->
+<div class="song-entry">
+  <div class="song-title">Super Wonderful God</div>
+  <audio controls>
+    <source src="mp3/superwonderful.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
+<div class="song-entry">
+  <div class="song-title">Anything at all</div>
+  <audio controls>
+    <source src="mp3/anythingatall.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
+<div class="song-entry">
+  <div class="song-title">Jesus is the Healer</div>
+  <audio controls>
+    <source src="mp3/jesusthehealer.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
+<div class="song-entry">
+  <div class="song-title">I Thank God</div>
+  <audio controls>
+    <source src="mp3/ithankgod.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
+
+<div class="song-entry">
+  <div class="song-title">Graves Into Gardens</div>
+  <audio controls>
+    <source src="mp3/gravesintogardens.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
+    <!-- Add more song entries as needed -->
+  </div>
+  <button id="backToMainFromSongsBtn" class="main-btn" style="margin-top:18px;">Back to Devotional</button>
+</div>
+
+
+  <script src="script.js" defer></script>
+</body>
+</html>
